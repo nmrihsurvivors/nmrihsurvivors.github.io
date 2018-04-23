@@ -1,0 +1,220 @@
+body {
+	background-attachment: fixed;
+	background-image: url("background.jpg");
+    background-repeat: no-repeat; 
+    background-size: 100%;
+	font-family:Arial;
+	font-size: 1em;
+	margin:0;
+	padding:0;
+	min-width:800px;
+}
+
+span.category {
+	color: #366abc;
+}
+
+span.title {
+	color: #36044c;
+	font-size: 25px;
+}
+
+div.toplink a:link {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:link {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #46c0f4;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a.statue:link {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.statue:visited {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.statue:hover {
+	color: #46c0f4;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.toplink {
+	background-color:#263759;
+	color:white;
+	width:100%;
+	height:50px;
+}
+
+div.merchandise {
+	margin-top:0cm;
+    height: 10em;
+	text-align:center;
+	color:white;
+	position: absolute;
+	left:50%;
+	transform: translate(-50%, 0%)
+}
+
+div.music {
+	margin-top:0px;
+    height: 10em;
+	text-align:center;
+    position: relative;
+}
+div.music p {
+    margin: 0;
+    background: grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+div.container4 {
+	margin-top:15cm;
+    height: 10em;
+	text-align:center;
+    position: relative }
+div.container4 p {
+    margin: 0;
+    background: grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+ 
+div.body {
+	margin-top:0cm;
+	text-align:center;
+	position: absolute;
+	left:50%;
+	background: grey;
+	transform: translate(-50%, 0%)
+}
+div.notesbody {
+	margin-top:0cm;
+	text-align:center;
+	position: absolute;
+	left:50%;
+	background: grey;
+	transform: translate(-50%, 0%)
+}
+div.artworkbody {
+	margin-top:0cm;
+	text-align:center;
+	position: absolute;
+	left:50%;
+	transform: translate(-50%, 0%)
+}
+div.versionsbody {
+	margin-top:0cm;
+	text-align:center;
+	position: absolute;
+	left:50%;
+	background-color: rgba(57, 55, 61, 0.8);
+	transform: translate(-50%, 0%)
+}
+
+.toplink ul {
+	margin-top:5px;
+	display: flex;
+	justify-content:space-between;
+	list-style-type: none;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #8e0000;
+    color: white;
+}
+
+.accordion {
+    background-color: #560303; 
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    transition: 0.4s;
+	font-size: 3em;
+	font-family:Arial;
+}
+
+.accordion:after {
+    content: '\002B'; /* Unicode character for "plus" sign (+) */
+    font-size: 1em;
+    color: #000000;
+    float: right;
+}
+
+.active {
+    background-color: #565353;
+}
+
+.active:after {
+    content: "\2212"; /* Unicode character for "minus" sign (-) */
+}
+
+.accordion:hover {
+    background-color: white;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: #565353;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out; /*make accordion time change depending on amount of text*/
+}
+
+.panel ul{
+    margin-top:5px;
+	justify-content:space-between;
+	list-style-type: circle;
+	text-align: left;
+}

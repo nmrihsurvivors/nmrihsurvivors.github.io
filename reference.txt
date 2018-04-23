@@ -1,0 +1,47 @@
+  <tr>
+    <th>Map Name</th>
+	<th>Official/Unofficial</th>
+    <th>Game Mode</th>
+	<th># of Zones</th>
+    <th>Map Creator(s)</th>
+	<th>Download Link</th>
+	<th>Release</th>
+	<th>Screenshots</th>
+	<th>Original Post</th>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td>Official</td> 
+    <td>Survival</td>
+	<td>--</td>
+	<td>Creator(?)</td>
+	<td>N/A</td>
+	<td>--</td>
+	<td>--</td>
+	<td><a href="" target="_self"</td>Forum</a></td>
+  </tr>
+  
+  
+
+<div class=notesbody>
+An update to No More Room in Hell has been released. The update will be applied automatically when you restart No More Room in Hell. The major changes include:
+<ul style="list-style-type:circle">
+  <li>Featuring nmo_broadway2, the sequel to the first map. We thought that we had gotten away from downtown broadway, only for our getaway train to breakdown on the tracks. Those of us that remain went to some apartment building to barricade ourselves in while we figure out what to do to escape this never ending hell. We think we might have seen signs of unlooted supplies to the south so that’s a better place than any to start.</li>
+  <li>nmo_suzhou has been added. The old city of suzhou has seen much in its centuries of existence, but the shambling army of the undead is a first. The city police force made an effort to screen and evacuate the people present in the city. Their efforts were not sufficient and the dead overran the living, packed evacuation centers became slaughterhouses, what few survived resigned themselves to death on their own terms. The evacuation centers by the Grand Canal are now silent... save for the whistling wind and the moans of the dead. Perhaps someone is still out there on the waters. One can only hope they are listening.</li>
+  <li>Milk</li>
+</ul>
+The following community made maps are now available. We'd like to thank these people for all their hard work on these maps:
+<ul style="list-style-type:circle">
+	<li>nmo_boardwalk by Dr Hammer, Demo, and BillionLioe
+	<li>nmo_quarantine by Coolz
+	<li>nmo_shelter by Fersigal and Atheist
+	<li>nmo_underground by Atheist, Extragamer, and Drunk_Steep
+	<li>nmo_vertigo by Ulreth
+	<li>nms_camilla by Atheist and Extragamer
+	<li>nmo_chinatown has been updated
+	<li>Playerclips have been fixed
+	<li>nms_flooded has been updated
+	<li>Skybox has been adjusted
+	<li>Miscellaneous props and textures have been added
+</ul>
