@@ -33,7 +33,7 @@
 	-Some model makers compile their reference mesh as the collision model. The above boombox (on the left) is an example of this. In general this is bad practice because collision models are made to be simple and just outline objects, they are not supposed to have polygon faces for every vertex in the mesh. If a model is found that's using the reference mesh as the collision model then it should have its collision model rebuilt.<br>
 	-Some collision models were incorrectly compiled causing the compiler to turn concave vertices into convex vertices. You can tell if a collision model has this problem by looking to see if there are collision boxes inside the model that seem to be covered by a larger overall collision model that seems to wrap around the entire object. An example of this issue can be seen in the ambulance below.<br>
 	<br>
-	<img src="ambulance_bad.png" alt="ambulance"><br>
+	<img src="ambulance.png" alt="ambulance"><br>
 	<br>
 	
 	How to decompile models from dev build:<br>
@@ -41,7 +41,7 @@
 	2) Make a folder inside of the "Edited Models" folder named "decompiled"<br>
 	3) Choose the model that you want to decompile from "Steam\steamapps\sourcemods\nmrih_dev\models"<br>
 	4) Copy the files of the model that you want to decompile into "Edited Models" but not into the "decompiled" folder. It is important that you copy all of the model's files and not just the .mdl file. Note: There should be 6 files copied over, but there may only be 5 if the .phy file is not present.<br>
-	<img src="decompiled_models.png" alt="ambulance"><br>
+	<img src="decompiledModels.png" alt="decompiled"><br>
 	5) Open Crowbar, go to the 'Decompile' tab and for 'MDL input' on the first line click 'Browse...' and open the "Edited Models" file on your desktop then double click the .mdl file<br>
 	6) Click 'Browse...' on the second line and locate your "Edited Models\decompiled" folder and click 'Open'<br>
 	7) In the bottom left of the interface click "Decompile" and then close Crowbar. You are now finished decompiling your model so it can be opened in Blender<br>
