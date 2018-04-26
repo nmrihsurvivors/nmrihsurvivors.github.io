@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="sorttable.js"></script> <!--- https://www.kryogenix.org/code/browser/sorttable/ --->
+	<link type="text/css" rel="stylesheet" href="stylesheet.css"/> 
+	<title>NMRiH Survivors</title>
+</head>
+<body>
+
+<!--- Top of the screen --->
+<div class=toplink>
+	
+	<div style="text-align:center;vertical-align:middle;position:relative;margin-top:0px">
+		<b>No More Room in Hell Survivors</b>
+	</div>
+	
+	<ul>
+		<li><u><a href="model_editing.html" target="_self"><b>Model Editing<b></a></u><li>
+		<li><a href="patchnotes.html" target="_self"><b>Patch Notes<b></a><li>
+		<li><a href="index.html" target="_self"><b>Map Archive<b></a><li>
+	</ul>
+</div>
+
+<div class=model_editing_body>
+	Why reduce polygons in collision models?<br>
+	Collisions require a lot of math (especially 3D collisions). This takes up CPU power and in turn reduces the performance of the game for no overall benefit. Sure a couple of polygons may not be terrible, but they add up in maps that have hundreds if not thousands of models in them. If each model has 10 extra polygons then overall the map could be loading thousands of extra unnecessary collisions, and we want to avoid this.<br>
+	<br>
+	<img src="boombox.png" alt="boombox"><br>
+	<br>
+	
+	What collision models need to be rebuilt?<br>
+	There are two instances when collision models need to be rebuilt:<br>
+	-Some model makers compile their reference mesh as the collision model. The above boombox (on the left) is an example of this. In general this is bad practice because collision models are made to be simple and just outline objects, they are not supposed to have polygon faces for every vertex in the mesh. If a model is found that's using the reference mesh as the collision model then it should have its collision model rebuilt.<br>
+	-Some collision models were incorrectly compiled causing the compiler to turn concave vertices into convex vertices. You can tell if a collision model has this problem by looking to see if there are collision boxes inside the model that seem to be covered by a larger overall collision model that seems to wrap around the entire object. An example of this issue can be seen in the ambulance below.<br>
+	<br>
+	<img src="ambulance_bad.png" alt="ambulance"><br>
+	<br>
+	
+	How to decompile models from dev build:<br>
+	1) Make a folder on your desktop named "Edited Models"<br>
+	2) Make a folder inside of the "Edited Models" folder named "decompiled"<br>
+	3) Choose the model that you want to decompile from "Steam\steamapps\sourcemods\nmrih_dev\models"<br>
+	4) Copy the files of the model that you want to decompile into "Edited Models" but not into the "decompiled" folder. It is important that you copy all of the model's files and not just the .mdl file. Note: There should be 6 files copied over, but there may only be 5 if the .phy file is not present.<br>
+	<img src="decompiled_models.png" alt="ambulance"><br>
+	5) Open Crowbar, go to the 'Decompile' tab and for 'MDL input' on the first line click 'Browse...' and open the "Edited Models" file on your desktop then double click the .mdl file<br>
+	6) Click 'Browse...' on the second line and locate your "Edited Models\decompiled" folder and click 'Open'<br>
+	7) In the bottom left of the interface click "Decompile" and then close Crowbar. You are now finished decompiling your model so it can be opened in Blender<br>
+	<br>
+
+	How to create a collision model when a model doesn't have one:<br>
+	1) Open Blender, delete the cube, and delete the camera<br>
+	2) Go to File -> Import -> Source Engine and go to the folder 'Edited Models\decompiled\' on your desktop and double click the [itemname]_ref.smd file<br>
+	3) Go to the 'Create' tab on the left and create a Cube. Resize and make as many cubes as needed to make an accurate collision model. Make sure to limit the number of polygons.<br>
+	4) Once you have made the collision model select all of the objects and press 'Ctrl-J' to join them all into one object.<br>
+	5) Click the newly created object and press Tab to go into edit mode, press 'A' to select all faces, and then go to the material tab on the top right and click 'New'<br>
+	6) Scroll down to the bottom of the page and set 'Pass Index' to 1<br>
+	7) On the left side of the screen go to the 'Shading/UVs' tab and under 'Faces:' click 'Smooth'<br>
+	8) Go to the Scene tab, scroll down to 'Source Engine Export', and click 'SMD' next to the 'Export For...' option<br>
+	9) Click the folder icon next to 'Export Path' and navigate to the 'Edited Models\decompiled\' folder on the desktop and click 'Accept' in the top right<br>
+	10) Click the 'Export' button and select the popup 'Cube.smd' and then close Blender<br>
+	11) Navigate to the 'Edited Models\decompiled\' folder on your desktop and rename 'Cube.smd' to '[itemname]_physics.smd'<br>
+	12) Right click the [itemname].qc file and click 'Edit with Notepad++'<br>
+	13) At the bottom of the file add the following lines:<br>
+	$collisionmodel "[itemname]_physics.smd" {<br>
+			$concave<br>
+		}<br>
+		Then save the file and close Notepad++<br>
+	14) Drag the [itemname].qc file to the studiomdl shortcut on your desktop<br>
+	15) When cmd is done running press enter and you're done! Now you can load up the game and the collision model should be fixed.<br>
+	<br>
+	<br>
+
+	How to check collision models: (dev build)<br>
+	1) Navigate to your 'Steam\steamapps\sourcemods\nmrih_dev' folder and double click 'hlmv.bat'<br>
+	2) Go to 'File -> Load Model' and select the .mdl file that you wish to check the collision of<br>
+	3) Enable the 'Physics Model' checkbox in the options at the bottom of the screen. Now you can see the mesh of the model and the collision model in red. If there is no red outline then that means the collision model needs to be built.<br>
+	<br>
+
+	How to edit existing collision models: (dev build)<br>
+	<br>
+
+	<img src="bench.png" alt="ambulance"><br>
+	<br>
+	How to fix sideways/offset collision models: (dev build)<br>
+	1) First decompile your model using the steps specified above.<br>
+	2) Open Blender, delete the cube, and delete the camera.<br>
+	3) Go to 'File -> Import -> Source Engine' and go to the folder 'Edited Models\decompiled\' on your desktop and double click the [itemname]_ref.smd file<br>
+	4) Go to 'File -> Import -> Source Engine' and go to the folder 'Edited Models\decompiled\' on your desktop and double click the [itemname]_physics.smd file<br>
+	5) Move/rotate the collision model as necessary to line up with the mesh model.<br>
+	6) Select only the [itemname]_physics.smd model and go to 'Scene -> Source Engine Export' and click 'SMD' next to the 'Export For...' option<br>
+	7) Click the folder icon next to 'Export Path' and navigate to the 'Edited Models\decompiled\' folder on the desktop and click 'Accept' in the top right<br>
+	8) Click the 'Export' button and select the popup '[itemname]_physics.smd' and then close Blender<br>
+	9) Open the 'Edited Models\decompiled\' folder on your desktop and drag the [itemname].qc file to the studiomdl shortcut on your desktop<br>
+	10) When cmd is done running press enter and you're done! Now you can load up the game and the collision model should be fixed.<br>
+</div>
+  
+
+</body>
+
+</html>

@@ -140,6 +140,14 @@ div.versionsbody {
 	background-color: rgba(57, 55, 61, 0.8);
 	transform: translate(-50%, 0%)
 }
+div.model_editing_body {
+	margin-top:0cm;
+	text-align:left;
+	position: absolute;
+	left:50%;
+	background: grey;
+	transform: translate(-50%, 0%)
+}
 
 .toplink ul {
 	margin-top:5px;
@@ -217,4 +225,8 @@ div.versionsbody {
 	justify-content:space-between;
 	list-style-type: circle;
 	text-align: left;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
 }
